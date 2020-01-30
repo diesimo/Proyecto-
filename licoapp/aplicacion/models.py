@@ -1,5 +1,5 @@
 from django.db import models
-
+#modelo
 class ID_Direcciones(models.Model): 
     id_direct = models.CharField('ID Direccion',max_length=5,primary_key=True)
     zona=models.CharField('Zona',max_length=30)
