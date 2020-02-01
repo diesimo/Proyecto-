@@ -8,7 +8,7 @@ class ID_Zonas(models.Model):
     id_zonas = models.CharField('ID Zonas',max_length=5,primary_key=True)
     zona=models.CharField('Zona',max_length=30)
     def __str__(self):
-        return self.ID_Zonas
+        return self.id_zonas
 
 #Tabla Cliente
 class Tabla_Cliente(models.Model):
