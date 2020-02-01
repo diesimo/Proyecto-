@@ -12,11 +12,11 @@ class AdminTablaCliente(admin.ModelAdmin):
     
    
 
-class AdminDirecciones(admin.ModelAdmin):
-    list_display=['id_direct','zona']
+class AdminZonas(admin.ModelAdmin):
+    list_display=['id_zonas','zona']
     search_fields=['zona']
 
 #Aqui estamos registrando los modelos que queremos que se nos modelen
 #en la interfaz de Django
-admin.site.register(ID_Direcciones,AdminDirecciones)
+admin.site.register(ID_Zonas,AdminZonas)
 admin.site.register(Tabla_Cliente,AdminTablaCliente)
