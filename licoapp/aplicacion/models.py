@@ -12,6 +12,7 @@ class ID_Zonas(models.Model):
     def __str__(self):
         return self.id_zonas
 
+
 #Tabla Cliente
 class Tabla_Cliente(models.Model):
     id_cliente=models.AutoField(primary_key=True)
