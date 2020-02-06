@@ -25,7 +25,18 @@ class Tabla_Cliente(models.Model):
     tlf=models.CharField('Telefono',max_length=12)
     membresia=models.BooleanField('Membresia',default=False)
 
-#Tabla 
+#Tabla Empleados
+
+class Tabla_Empleados(models.Model):
+    id_empleado=models.AutoField(primary_key=True)
+    nombre=models.CharField('Nombre',max_length=30)
+    apellido=models.CharField('Apellido',max_length=30)
+    cedula=models.CharField('Cedula', max_length=12)
+    fecha=models.DateField('Fecha de Nacimiento')
+    id_banco=models.AutoField('Banco', max_length=13)
+    cuenta=models.CharField('Cuenta', max_length=20)
+    
+    
 
 
 
