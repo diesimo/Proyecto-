@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'licoapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'baselico',
+        'NAME': 'licoapp',
         'USER': 'root',
         'PASSWORD': 'chocolate',
         'HOST':'localhost',
