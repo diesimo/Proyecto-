@@ -7,6 +7,8 @@ class ID_Zonas(models.Model):
 
     id_zonas = models.CharField('ID Zonas',max_length=5,primary_key=True)
     zona=models.CharField('Zona',max_length=30)
+    horas=models.CharField('Hora',max_length=6)
+    #
     def __str__(self):
         return self.id_zonas
 
@@ -21,6 +23,8 @@ class Tabla_Cliente(models.Model):
     fecha=models.DateField('Fecha de Nacimiento')
     tlf=models.CharField('Telefono',max_length=12)
     membresia=models.BooleanField('Membresia',default=False)
+
+#Tabla 
 
 
 
