@@ -13,7 +13,7 @@ class AdminTablaCliente(admin.ModelAdmin):
    
 
 class AdminZonas(admin.ModelAdmin):
-    list_display=['id_zonas','zona']
+    list_display=['id_zonas','zona','horas']
     search_fields=['zona']
 
 #Aqui estamos registrando los modelos que queremos que se nos modelen
