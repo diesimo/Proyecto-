@@ -1,6 +1,6 @@
 from django.contrib import admin
 #Se importan todos los modelos de la clase modelos
-from .models import *
+from .models import Tabla_Empleados,Tabla_Cliente, ID_Zonas
 from django.contrib.auth.admin import UserAdmin
 
 
@@ -20,3 +20,4 @@ class AdminZonas(admin.ModelAdmin):
 #en la interfaz de Django
 admin.site.register(ID_Zonas,AdminZonas)
 admin.site.register(Tabla_Cliente,AdminTablaCliente)
+admin.site.register(Tabla_Empleados)

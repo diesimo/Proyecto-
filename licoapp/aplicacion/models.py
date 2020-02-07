@@ -32,10 +32,8 @@ class Tabla_Empleados(models.Model):
     nombre=models.CharField('Nombre',max_length=30)
     apellido=models.CharField('Apellido',max_length=30)
     cedula=models.CharField('Cedula', max_length=12)
-    fecha=models.DateField('Fecha de Nacimiento')
-    id_banco=models.AutoField('Banco', max_length=13)
+    fecha2=models.DateField('Fecha de Nacimiento')
     cuenta=models.CharField('Cuenta', max_length=20)
-    
     
 
 
