@@ -8,7 +8,7 @@ class Zonas(models.Model):
     id_zonas = models.CharField('ID Zonas',max_length=5,primary_key=True)
     zona=models.CharField('Zona',max_length=30)
     horas=models.CharField('Hora',max_length=6)
-    #
+    #jjaja
     def __str__(self):
         return self.id_zonas
 
