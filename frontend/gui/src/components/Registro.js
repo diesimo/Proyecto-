@@ -16,7 +16,7 @@ export default class Registro extends Component {
     email:'',
     fecha:'',
     tlf:'',
-    membresia1:"",
+    membresia:false,
 
     zonas:[],
     zonaSelect:'',
@@ -40,15 +40,15 @@ const newUser= {
             email: this.state.email,
             fecha: this.state.fecha,
             tlf: this.state.tlf,
-            membresia: this.state.membresia1,
-            zona:this.state.zonaSelect,
+            membresia: this.state.membresia,
+            zona1:this.state.zonaSelect,
            
             
             
 
 
         };
-        console.log(this.state.nombre, this.state.membresia1, this.state.fecha, this.state.zonaSelect)
+        console.log(this.state.nombre, this.state.fecha, this.state.zonaSelect)
       const res= await Axios.post('http://127.0.0.1:8000/aplicacionCliente/', newUser);
         
 //console.log(res)
@@ -79,7 +79,7 @@ const newUser= {
 
     cambiar(){
 
-        if(this.state.membresia1=='on')
+        if(this.state.membresia=="on")
         {
             return true
 
@@ -112,12 +112,13 @@ const newUser= {
 
 
                 this.state.zonas.map(zonas=>
-                <option key={zonas.zona}>
+                <option key={zonas.id_zonas}>
 
 
                     {
 
                         zonas.id_zonas
+                        
                     }
                 </option>)
             }
@@ -153,8 +154,8 @@ const newUser= {
                  </div>
                  
                  <div className="form-group">
-                  <input type="checkbox" value="true" className="form-control" placeholder="Membresia" 
-                 onChange={this.onInputChange}  name="membresia1"   required/> 
+                  <input type="checkbox"   value='true'className="form-control" placeholder="Membresia" 
+                 onChange={this.onInputChange}  name="membresia"   required/> 
                  </div> 
             
                  <div className="form-group">
