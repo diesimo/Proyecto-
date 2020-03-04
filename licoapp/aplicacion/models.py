@@ -5,42 +5,21 @@ from django.db import models
 #Tabla Zonas
 class Zonas(models.Model): 
 
-    id_zonas = models.CharField('ID Zonas',max_length=5,primary_key=True)
+    id_zonas = models.AutoField(primary_key=True)
     zona=models.CharField('Zona',max_length=30)
     horas=models.CharField('Hora',max_length=6)
-    nombre_zona=models.CharField('Nombre de la Zona',max_length=30)
+   
     
     def __str__(self):
-        return self.id_zonas
+        return self.zona
 
+#Tabla Nombre de Usuario
 
-#Tabla Cliente
-class Cliente(models.Model):
-    id_cliente=models.AutoField('ID Cliente',max_length=5,primary_key=True)
-    zona=models.ForeignKey(Zonas,on_delete=models.CASCADE) #clave
-    cedula=models.CharField('Cedula', max_length=12)
-    fecha=models.DateField('Fecha de Nacimiento')
-    tlf=models.CharField('Telefono',max_length=12)
-    membresia=models.BooleanField('Membresia',default=False)
-    id_usuario=models.ForeignKey(Usuarios,on_delete=models.CASCADE)
+class Name(models.Model):
 
-    def __str__(self):
-        return self.id_cliente
-
-#Tabla Empleados
-
-class Empleados(models.Model):
-
-    id_empleado=models.AutoField('ID Empleado',max_length=5,primary_key=True)
-    nombre1=models.CharField('Nombre',max_length=30)
-    apellido1=models.CharField('Apellido',max_length=30)
-    cedula1=models.CharField('Cedula', max_length=12)
-    fecha2=models.DateField('Fecha de Nacimiento')
-    cuenta=models.CharField('Cuenta', max_length=20)
-    id_usuario=models.ForeignKey(Usuarios,on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.id_empleado
+    nom_usu=models.AutoField(primary_key=True)
+    apellido=models.CharField('Apellido',max_length=20)
+    nombre=models.CharField('Nombre',max_length=20)
     
 #Tabla Usuarios
 
@@ -52,78 +31,106 @@ class Usuarios(models.Model):
     email=models.CharField('Email',max_length=30)
 
     def __str__(self):
-        return self.id_usuario
+        return self.email
 
-#Tabla Nombre de Usuario
 
-class Name(models.Model):
+#Tabla Cliente
 
-    nom_usu=models.AutoField('Nombre de Usuario',max_length=20,primary_key=True)
-    apellido=models.CharField('Apellido',max_length=20)
-    nombre=models.CharField('Nombre',max_length=20)
+class Cliente(models.Model):
+    id_cliente=models.AutoField(primary_key=True)
+    zona=models.ForeignKey(Zonas,on_delete=models.CASCADE) #clave
+    cedula=models.CharField('Cedula', max_length=12)
+    fecha=models.DateField('Fecha de Nacimiento')
+    tlf=models.CharField('Telefono',max_length=12)
+    membresia=models.BooleanField('Membresia',default=False)
+    id_usuario=models.OneToOneField(Usuarios,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.cedula
+
+#Tabla Empleados
+
+class Empleados(models.Model):
+
+    id_empleado=models.AutoField(primary_key=True)
+    cedula1=models.CharField('Cedula', max_length=12)
+    fecha2=models.DateField('Fecha de Nacimiento')
+    cuenta=models.CharField('Cuenta', max_length=20)
+    id_usuario=models.OneToOneField(Usuarios,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.cuenta
+
+
+#tabla de Proveedores
+
+class Proveedores(models.Model):
+
+    id_prove=models.AutoField(primary_key=True)
+    rif=models.CharField('RIF',max_length=10)
+    nom_prove=models.CharField('Nombre del Proveedor',max_length=20)
+    direc=models.CharField('Direccion',max_length=30)
+
+    def __str__(self):
+        return self.rif
 
 #Tabla de Productos
 
-    id_pro=models.AutoField('ID Producto', max_length=5,primary_key=True)
+class Productos(models.Model):
+
+    id_pro=models.AutoField(primary_key=True)
     nom_pro=models.CharField('Nombre del Producto', max_length=30)
     descripcion=models.CharField('Descripcion',max_length=40)
     costo=models.IntegerField('Costo',max_length=10)
     tipo_pro=models.CharField('Tipo de Productos', max_length=15)
-    stock=models.IntegerField('Stock',max_length=5)
-    id_lico=models.ForeignKey(Licores,on_delete=models.CASCADE)    
+    stock=models.IntegerField('Stock',max_length=5)    
     id_prove=models.ForeignKey(Proveedores,on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.id_pro
+        return self.nom_pro
 
 
 #Tabla de Licores
 
 class Licores(models.Model):
 
-    id_lico=models.AutoField('ID Licor',max_length=5,primary_key=True)
+    id_lico=models.AutoField(primary_key=True)
     tipo_lico=models.CharField('Tipo de Licor',max_length=10)
     grados=models.IntegerField('Grados', max_length=5)
     region=models.CharField('Region',max_length=10)
+    id_pro=models.ForeignKey(Productos,on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.id_lico
+        return self.region
 
-#Tabla de Proveedores
 
-class Proveedores(models.Model):
-
-    id_prove=models.AutoField('ID de Proveedor',max_length=5,primary_key=True)
-    rif=models.CharField('RIF',max_length=10)
-    nom_prove=models.CharField('Nombre del Proveedor',max_length=20)
-    direc=models.CharField('Direccion',max_length=30)
-
-    def __str__(self):
-        return self.id_prove
-#Tabla Factura
-
-class Factura(models.Model):
-    
-    id_fac=models.AutoField('ID Factura',max_length=15,primary_key=True)
-    fecha_fac=models.DateField('Fecha de Factura')
-    descuento=models.IntegerField('Descuento',max_length=10)
-    monto_fac=models.IntegerField('Monto de la Factura',max_length=10)
-    monto=models.ForeignKey(Pagos,on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.id_fac
-
-#Tabla Pagos       
+#Tabla Pagos 
 
 class Pagos(models.Model):
 
-    monto=models.AutoField('Monto a Pagar',max_length=10,primary_key=True)
+    monto=models.AutoField(primary_key=True)
     num_instrum=models.IntegerField('Numero de instrumento de pago',max_length=20)
     tipo_inst=models.CharField('Tipo de Instrumento',max_length=20)
     divisas=models.CharField('Divisas a utilzar',max_length=10)
 
     def __str__(self):
         return self.monto
+
+#Tabla Factura
+
+class Factura(models.Model):
+    
+    id_fac=models.AutoField(primary_key=True)
+    fecha_fac=models.DateField('Fecha de Factura')
+    descuento=models.IntegerField('Descuento',max_length=10)
+    monto_fac=models.IntegerField('Monto de la Factura',max_length=10)
+    monto=models.ForeignKey(Pagos,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.fecha_fac
+      
+
+
 
 
 
