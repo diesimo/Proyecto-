@@ -9,18 +9,23 @@ export default class Registro extends Component {
 
     //propiedad
     
+   
     nombre: '',
     apellido:'',
     cedula:'',
     email:'',
+    fecha:'',
     tlf:'',
-    membresia: '',
-    fecha2:'',
+    membresia1:"",
+
+    zonas:[],
+    zonaSelect:'',
+    
 
    }
 
 
-   
+ 
    
    
     onSubmit= async(e)=> {
@@ -33,18 +38,30 @@ const newUser= {
             apellido: this.state.apellido,
             cedula: this.state.cedula,
             email: this.state.email,
-            fecha: this.state.fecha2,
+            fecha: this.state.fecha,
             tlf: this.state.tlf,
-            membresia: this.state.membresia,
+            membresia: this.state.membresia1,
+            zona:this.state.zonaSelect,
+           
             
             
 
 
         };
-        console.log(this.state.nombre, this.state.apellido)
+        console.log(this.state.nombre, this.state.membresia1, this.state.fecha, this.state.zonaSelect)
       const res= await Axios.post('http://127.0.0.1:8000/aplicacionCliente/', newUser);
         
 //console.log(res)
+    }
+
+
+  async  componentDidMount()
+    {
+       const res= await Axios.get('http://127.0.0.1:8000/aplicacionesZonas/');
+
+        this.setState({zonas:res.data})
+
+
     }
     
     onChangeDate= fecha =>{
@@ -55,11 +72,26 @@ const newUser= {
     }
 
     onInputChange = e =>{
-       // console.log(e.target.name, e.target.value)
+        console.log(e.target.name, e.target.value)
         this.setState({  [e.target.name]: e.target.value })
 
     }
 
+    cambiar(){
+
+        if(this.state.membresia1=='on')
+        {
+            return true
+
+        }else
+        {
+            return false
+
+        }
+
+
+
+    }
 
     
     
@@ -72,7 +104,29 @@ const newUser= {
 
                 <div className="card card-body"> <h4>Create User</h4>
                 
+        <div className="form-group">
+            <select className="form-control" 
+            name="zonaSelect" onChange={this.onInputChange}>
 
+            {
+
+
+                this.state.zonas.map(zonas=>
+                <option key={zonas.zona}>
+
+
+                    {
+
+                        zonas.id_zonas
+                    }
+                </option>)
+            }
+
+
+            </select>
+
+
+        </div>
                 <div className="form-group">
                   <input type="text" className="form-control" placeholder="Nombre" 
                   name="nombre"  onChange={this.onInputChange} required  />
@@ -99,23 +153,18 @@ const newUser= {
                  </div>
                  
                  <div className="form-group">
-                  <input type="text"  className="form-control" placeholder="Membresia" 
-                 onChange={this.onInputChange}  name="membresia"  required/> 
+                  <input type="checkbox" value="true" className="form-control" placeholder="Membresia" 
+                 onChange={this.onInputChange}  name="membresia1"   required/> 
                  </div> 
             
                  <div className="form-group">
-                  <input type="text"  className="form-control" placeholder="Fecha2" 
-                 onChange={this.onInputChange}  name="fecha2"   required/> 
+                  <input type="date" className="form-control" placeholder="Fecha de Nacimiento" 
+                 onChange={this.onInputChange}  name='fecha'   required/> 
                  </div> 
+            
 
 
-                <div className="form-group" id="check">
-                        <DatePicker className="form-control" 
-                        selected={this.state.fecha}
-                        onChange={this.onChangeDate}
-                        
-                        />
-                 </div>
+              
 
                
                    

@@ -6,6 +6,7 @@ from rest_framework import routers
 router =routers.DefaultRouter()
 router.register('aplicacionCliente', views.ClienteView)
 router.register('aplicacionEmpleado', views.EmpleadosView)
+router.register('aplicacionesZonas', views.ZonasView)
 
 
 

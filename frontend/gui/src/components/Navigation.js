@@ -29,6 +29,7 @@ export default class Navigation extends Component {
               <Link className="dropdown-item" to="/Login"> Login</Link>
               <Link className="dropdown-item" to="/Registro">Registro</Link>
               <Link className="dropdown-item" to="/RegisEmpl">Registro Empleado</Link>
+              <Link className="dropdown-item" to="/Zonas">Zonas</Link>
                 <div className="dropdown-divider"></div>
                 <a className="dropdown-item" href="#">Something else here</a>
               </div>

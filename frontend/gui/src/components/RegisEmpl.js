@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import DatePicker from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css'
+
 import Axios from 'axios'
 
-export default class Registro extends Component {
+export default class RegisEmpl extends Component {
    
    state={
 
@@ -12,8 +11,8 @@ export default class Registro extends Component {
     nombre: '',
     apellido:'',
     cedula:'',
-    email:'',
-    tlf:'',
+    fecha2:'',
+    cuenta:'',
     
 
    }
@@ -25,30 +24,24 @@ export default class Registro extends Component {
     onSubmit= async(e)=> {
         console.log(this.state)
         e.preventDefault();
-const newUser= {
+const newEmpleado= {
             
 
             nombre: this.state.nombre,
             apellido: this.state.apellido,
             cedula: this.state.cedula,
-            email: this.state.email,
-            fecha: this.state.fecha2,
-            tlf: this.state.tlf,
-            membresia: this.state.membresia,
+            fecha2: this.state.fecha2,
+            cuenta: this.state.cuenta,
+            
          
         };
         console.log(this.state.nombre, this.state.apellido)
-      const res= await Axios.post('http://127.0.0.1:8000/aplicacionCliente/', newUser);
+      const res= await Axios.post('http://127.0.0.1:8000/aplicacionEmpleado/', newEmpleado);
         
 //console.log(res)
     }
     
-    onChangeDate= fecha =>{
-
-        this.setState({fecha});
-
-
-    }
+   
 
     onInputChange = e =>{
        // console.log(e.target.name, e.target.value)
@@ -79,39 +72,27 @@ const newUser= {
                    onChange={this.onInputChange}  name="apellido" required/>
                   </div>
 
-                   <div className="form-group">
-                  <input type="text" className="form-control" placeholder="Email" 
-                  onChange={this.onInputChange}  name="email" required/>
-                 </div>
+                   
                  
                  <div className="form-group">
                   <input type="text" className="form-control" placeholder="Cedula" 
                   onChange={this.onInputChange}  name="cedula" required/>
                  </div>
                  
-                 <div className="form-group">
-                  <input type="text" className="form-control" placeholder="Telefono" 
-                  onChange={this.onInputChange}  name="tlf" required/>
-                 </div>
+                 
                  
                  <div className="form-group">
-                  <input type="text"  className="form-control" placeholder="Membresia" 
-                 onChange={this.onInputChange}  name="membresia"  required/> 
+                  <input type="text"  className="form-control" placeholder="Cuenta" 
+                 onChange={this.onInputChange}  name="cuenta"  required/> 
                  </div> 
             
                  <div className="form-group">
-                  <input type="text"  className="form-control" placeholder="Fecha2" 
+                  <input type="date"  className="form-control" placeholder="Fecha2" 
                  onChange={this.onInputChange}  name="fecha2"   required/> 
                  </div> 
 
 
-                <div className="form-group" id="check">
-                        <DatePicker className="form-control" 
-                        selected={this.state.fecha}
-                        onChange={this.onChangeDate}
-                        
-                        />
-                 </div>
+               
 
                
                    
