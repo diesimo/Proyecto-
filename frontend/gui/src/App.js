@@ -18,7 +18,7 @@ function App() {
   return (
     <Router>
       <Navigation/>
-      <Route path="/Licores" component={Licores}/>
+     <Route path="/Licores" component={Licores}/>
       <Route path="/Login" component={Login}/>
       <Route path="/Registro" component={Registro}/>
       <Route path="/RegisEmpl" component={RegisEmpl}/>

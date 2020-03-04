@@ -5,7 +5,7 @@ from django.db import models
 #Tabla Zonas
 class Zonas(models.Model): 
 
-    id_zonas = models.CharField('ID Zonas',max_length=5,primary_key=True)
+    id_zonas = models.AutoField(primary_key=True)
     zona=models.CharField('Zona',max_length=30)
     horas=models.CharField('Hora',max_length=6)
     nombre_zona=models.CharField('Nombre de la Zona',max_length=30)
@@ -37,20 +37,22 @@ class Empleados(models.Model):
     fecha2=models.DateField('Fecha de Nacimiento')
     cuenta=models.CharField('Cuenta', max_length=20)
     
+
+    #Tabla Nombre de Usuario
+
+class Name(models.Model):
+
+    nom_usu=models.CharField('Nombre',max_length=20)
+    apellido=models.CharField('Apellido',max_length=20)
 #Tabla Usuarios
 
 class Usuarios(models.Model):
 
-    id_usuario=models.AutoField('ID Usuario',max_length=5,primary_key=True)
+    id_usuario=models.AutoField(primary_key=True)
     password=models.CharField('Contraseña', max_length=12)
-    nom_usu=models.ForeignKey(name,on_delete=models.CASCADE)
+    nom_usu=models.ForeignKey(Name,on_delete=models.CASCADE)
 
-#Tabla Nombre de Usuario
 
-class name(models.Model):
-
-    nom_usu=models.CharField('Nombre',max_length=20)
-    apellido=models.CharField('Apellido',max_length=20)
 
 #Tabla de Productos
 

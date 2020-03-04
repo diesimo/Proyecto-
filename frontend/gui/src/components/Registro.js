@@ -81,11 +81,11 @@ const newUser= {
 
         if(this.state.membresia=="on")
         {
-            return true
+            return 'true'
 
         }else
         {
-            return false
+            return 'false'
 
         }
 
