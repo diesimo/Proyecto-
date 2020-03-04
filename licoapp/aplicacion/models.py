@@ -18,7 +18,7 @@ class Cliente(models.Model):
     id_cliente=models.AutoField(primary_key=True)
     nombre=models.CharField('Nombre',max_length=30)
     apellido=models.CharField('Apellido',max_length=30)
-    zona=models.OneToOneField(Zonas,on_delete=models.CASCADE)
+    fecha=models.DateField('Fecha de Nacimiento')
     cedula=models.CharField('Cedula', max_length=12)
     email=models.CharField('Email',max_length=30)
     fecha=models.DateField('Fecha de Nacimiento')
