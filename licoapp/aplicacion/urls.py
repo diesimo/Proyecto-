@@ -7,6 +7,8 @@ router =routers.DefaultRouter()
 
 router.register('aplicacionesZonas', views.ZonasView)
 router.register('aplicacionUsuarios',views.UsuariosView)
+router.register('aplicacionProveedores',views.ProveedoresView)
+router.register('aplicacionProductos',views.ProductosView)
 
 
 

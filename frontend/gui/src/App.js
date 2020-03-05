@@ -9,6 +9,8 @@ import Registro from './components/Registro';
 import RegisEmpl from './components/RegisEmpl';
 import Zonas from './components/Zonas';
 import Registrar from './components/Registrar';
+import Provedor from'./components/Provedor';
+import Productos from './components/Productos';
 import 'bootstrap';
 import'bootstrap/dist/js/bootstrap.js';
 import 'bootstrap/js/dist/dropdown';
@@ -25,7 +27,8 @@ function App() {
       <Route path="/RegisEmpl" component={RegisEmpl}/>
       <Route path="/Zonas" component={Zonas}/>
       <Route path="/Registrar" component={Registrar}/>
-
+      <Route path="/Provedor" component={Provedor}/>
+      <Route path="/Productos" component={Productos}/>
     </Router>
   );
 }

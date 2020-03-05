@@ -31,7 +31,7 @@ export default class Login extends Component {
         for(var i=0;i>=this.state.users.length;i++)
         {
 
-            if(this.state.users.email==this.state.email)
+            if(this.state.users==this.state.email)
             {
                 return true;
 
@@ -89,20 +89,7 @@ export default class Login extends Component {
                         </div>
                        
                     </form>
-                    <div className="col-md-8"  div> 
-
                    
-
-
-                    this.state.users.map(users =><div>
-
-                        {users.nombre}
-                    </div>)
-                    }
-
-
-                
-                    </div>  
                
 
         

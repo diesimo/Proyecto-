@@ -21,7 +21,7 @@ export default class Navigation extends Component {
             </li>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Productos
+                Menu
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
               <Link className="dropdown-item" to="/Licores">Licores</Link>
@@ -31,8 +31,10 @@ export default class Navigation extends Component {
               <Link className="dropdown-item" to="/RegisEmpl">Registro Empleado</Link>
               <Link className="dropdown-item" to="/Zonas">Zonas</Link>
               <Link className="dropdown-item" to="/Registrar">Registrar</Link>
+              <Link className="dropdown-item" to="/Provedor">Proveedores</Link>
+              <Link className="dropdown-item" to="/Productos">Productos</Link>
                 <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="#">Something else here</a>
+                <a className="dropdown-item" href="#">Somethsing else here</a>
               </div>
             </li>
             <li className="nav-item">
