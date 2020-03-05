@@ -81,9 +81,9 @@ class Productos(models.Model):
     id_pro=models.AutoField(primary_key=True)
     nom_pro=models.CharField('Nombre del Producto', max_length=30)
     descripcion=models.CharField('Descripcion',max_length=40)
-    costo=models.IntegerField('Costo',max_length=10)
+    costo=models.IntegerField('Costo')
     tipo_pro=models.CharField('Tipo de Productos', max_length=15)
-    stock=models.IntegerField('Stock',max_length=5)    
+    stock=models.IntegerField('Stock')    
     id_prove=models.ForeignKey(Proveedores,on_delete=models.CASCADE)
 
     def __str__(self):
@@ -96,7 +96,7 @@ class Licores(models.Model):
 
     id_lico=models.AutoField(primary_key=True)
     tipo_lico=models.CharField('Tipo de Licor',max_length=10)
-    grados=models.IntegerField('Grados', max_length=5)
+    grados=models.IntegerField('Grados')
     region=models.CharField('Region',max_length=10)
     id_pro=models.ForeignKey(Productos,on_delete=models.CASCADE)
 
@@ -108,8 +108,9 @@ class Licores(models.Model):
 
 class Pagos(models.Model):
 
-    monto=models.AutoField(primary_key=True)
-    num_instrum=models.IntegerField('Numero de instrumento de pago',max_length=20)
+    idMonto=models.AutoField(primary_key=True)
+    monto=models.IntegerField('monto')
+    num_instrum=models.IntegerField('Numero de instrumento de pago')
     tipo_inst=models.CharField('Tipo de Instrumento',max_length=20)
     divisas=models.CharField('Divisas a utilzar',max_length=10)
 
@@ -122,8 +123,8 @@ class Factura(models.Model):
     
     id_fac=models.AutoField(primary_key=True)
     fecha_fac=models.DateField('Fecha de Factura')
-    descuento=models.IntegerField('Descuento',max_length=10)
-    monto_fac=models.IntegerField('Monto de la Factura',max_length=10)
+    descuento=models.IntegerField('Descuento')
+    monto_fac=models.IntegerField('Monto de la Factura')
     monto=models.ForeignKey(Pagos,on_delete=models.CASCADE)
 
     def __str__(self):
