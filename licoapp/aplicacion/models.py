@@ -103,7 +103,7 @@ class Licores(models.Model):
     def __str__(self):
         return self.region
 
-
+#comentario de prueba
 #Tabla Pagos 
 
 class Pagos(models.Model):
