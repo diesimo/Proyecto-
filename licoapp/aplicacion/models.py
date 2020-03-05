@@ -15,19 +15,18 @@ class Zonas(models.Model):
 
 #Tabla Nombre de Usuario
 
-class Name(models.Model):
 
-    nom_usu=models.AutoField(primary_key=True)
-    apellido=models.CharField('Apellido',max_length=20)
-    nombre=models.CharField('Nombre',max_length=20)
+   
     
 #Tabla Usuarios
 
 class Usuarios(models.Model):
 
     id_usuario=models.AutoField(primary_key=True)
-    password=models.CharField('Contraseña', max_length=12)
-    nom_usu=models.ForeignKey(Name,on_delete=models.CASCADE)   
+    nombre=models.CharField('Nombre',max_length=20)
+    apellido=models.CharField('Apellido',max_length=20)
+    
+    password=models.CharField('Contraseña', max_length=12) 
     email=models.CharField('Email',max_length=30)
 
     def __str__(self):

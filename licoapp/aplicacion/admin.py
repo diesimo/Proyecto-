@@ -7,7 +7,7 @@ from django.contrib.auth.admin import UserAdmin
 #Aqui cambiamos la forma en como se despliega la interfaz de adminitacion 
 #se crean clases en base a lo que queremos modificar
 class AdminUsuarios(admin.ModelAdmin):
-    list_display=['nom_usu','password','email']
+    list_display=['nombre','apellido','email','password']
     search_fields=[]   
 
 class AdminZonas(admin.ModelAdmin):

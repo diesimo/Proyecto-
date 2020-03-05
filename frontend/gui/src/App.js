@@ -8,6 +8,7 @@ import Login from './components/Login';
 import Registro from './components/Registro';
 import RegisEmpl from './components/RegisEmpl';
 import Zonas from './components/Zonas';
+import Registrar from './components/Registrar';
 import 'bootstrap';
 import'bootstrap/dist/js/bootstrap.js';
 import 'bootstrap/js/dist/dropdown';
@@ -23,6 +24,7 @@ function App() {
       <Route path="/Registro" component={Registro}/>
       <Route path="/RegisEmpl" component={RegisEmpl}/>
       <Route path="/Zonas" component={Zonas}/>
+      <Route path="/Registrar" component={Registrar}/>
 
     </Router>
   );

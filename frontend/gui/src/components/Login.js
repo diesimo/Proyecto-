@@ -1,9 +1,55 @@
 import React, { Component } from 'react'
-
+import Axios from 'axios'
 
 
   
 export default class Login extends Component {
+
+
+    state={
+
+        users:[],
+        email:'',
+        var:'',
+    
+       }
+
+
+
+    async componentDidMount(){
+
+
+        const res = await Axios.get('http://127.0.0.1:8000/aplicacionUsuarios/');
+        this.setState({users:res.data})
+    
+    
+    
+    }
+
+    verificar(){
+
+        for(var i=0;i>=this.state.users.length;i++)
+        {
+
+            if(this.state.users.email==this.state.email)
+            {
+                return true;
+
+            }else
+            {
+
+                return false;
+
+            }
+
+        }
+
+
+    }
+
+
+
+
     render() {
       return (
        
@@ -25,22 +71,43 @@ export default class Login extends Component {
                             <div className="input-group-prepend">
                                 <span className="input-group-text"><i className="fas fa-user"></i></span>
                             </div>
-                            <input type="text" className="form-control" placeholder="username"/>
+                            <input type="text" className="form-control" name="email" placeholder="email"/>
                             
                         </div>
+
+                    
+
                         <div className="input-group form-group">
                             <div className="input-group-prepend">
                                 <span className="input-group-text"><i className="fas fa-key"></i></span>
                             </div>
                             <input type="password" className="form-control" placeholder="password"/>
                         </div>
-                        <div className="row align-items-center remember">
-                            <input type="checkbox"/>Remember Me
-                        </div>
+                        
                         <div className="form-group">
                             <input type="submit" value="Loginsss" className="btn float-right login_btn"/>
                         </div>
+                       
                     </form>
+                    <div className="col-md-8"  div> 
+
+                   
+
+
+                    this.state.users.map(users =><div>
+
+                        {users.nombre}
+                    </div>)
+                    }
+
+
+                
+                    </div>  
+               
+
+        
+
+                    
                 </div>
                 <div className="card-footer">
                     <div className="d-flex justify-content-center links">
@@ -54,8 +121,10 @@ export default class Login extends Component {
         </div>
     
     </div>
+
+   
       )
-  
+   console.log(this.verificar())
   
     }
   

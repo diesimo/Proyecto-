@@ -12,8 +12,7 @@ export default class Zonas extends Component {
     state={
  
      //propiedad
-     
-     id_zona:'',
+   
      zona:'',
      horas:'',
  
@@ -29,12 +28,11 @@ export default class Zonas extends Component {
  const newZona= {
              
  
-             id_zonas: this.state.id_zona,
              zona:this.state.zona,
              horas:this.state.horas,
           
          };
-         console.log(this.state.id_zona, this.state.zona)
+         console.log( this.state.zona)
        const res= await Axios.post('http://127.0.0.1:8000/aplicacionesZonas/', newZona);
          
  //console.log(res)
@@ -61,10 +59,7 @@ export default class Zonas extends Component {
                  <div className="card card-body"> <h4>Create User</h4>
                  
  
-                 <div className="form-group">
-                   <input type="text" className="form-control" placeholder="IdZona" 
-                   name="id_zona"  onChange={this.onInputChange} required  />
-                   </div>
+                 
  
                    <div className="form-group">
                    <input type="text" className="form-control" placeholder="Zona" 

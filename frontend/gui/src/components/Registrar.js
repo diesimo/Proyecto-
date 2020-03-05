@@ -9,10 +9,9 @@ export default class Registrar extends Component {
 
 
         nombre:'',
-        descripcion:'',
-        costo:'',
-        tipo:'',
-        stock:''
+        apellido:'',
+        password:'',
+        email:'',
         
        
 

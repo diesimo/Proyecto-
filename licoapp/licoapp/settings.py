@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'aplicacion',
-    #'rest_framework',
-    #'corsheaders',
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -110,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 REST_FRAMEWORK={
-    'PAGE_SIZE':10
+    #'PAGE_SIZE':10
 }
 
 # Internationalization
