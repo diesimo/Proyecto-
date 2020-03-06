@@ -26,8 +26,8 @@ export default class Navigation extends Component {
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
               
              
-              <Link className="dropdown-item" to="/Login"> Login</Link>
-              <Link className="dropdown-item" to="/Registro">Registro</Link>
+              
+              
               
               <Link className="dropdown-item" to="/Zonas">Zonas</Link>
               <Link className="dropdown-item" to="/Registrar">Registrar</Link>
