@@ -3,58 +3,51 @@ import axios from 'axios';
 
 export default class Productos extends Component
 {
-    state = {
 
-        users:[]
-
-    }
-
-
-    async componentDidMount(){
-// "await" provoca  que la ejecucion de una funcion async sea pausada hasat que un valor 
-/// sea terminada o reachazada, y regrese a la ejecucion
-       const res= await axios.get('http://127.0.0.1:8000/aplicacionCliente/').then(res=>{
-        console.log(res);
+  onSubmit= async(e)=> {
+    console.log(this.state)
+    e.preventDefault();
+const newZona= {
         
-        this.setState({users:res.data});
 
-})
-    }
+        zona:this.state.zona,
+        horas:this.state.horas,
+     
+    };
+    console.log( this.state.zona)
+  const res= await axios.post('http://127.0.0.1:8000/aplicacionesZonas/', newZona);
+    
+//console.log(res)
+}
+ 
+
+  render() {
+
+    return (
+      <div className="col-md-6 offset-md-3" >
+        <div className="card card-body">
+            <h4>Create Producto</h4>
+            <form onSubmit={this.onSubmit}>
+
+              <button type="submit" className='btn btn-primary'>
+
+              save
+
+              </button>
 
 
 
-  render(){
+            </form>
 
 
-    return(
-        
-                
 
-      <div className ='row'> 
-              <div className="col-md-4">
-
-
-              </div>
-          <div className="col-md-8">
-
-            <ul className="list-group">  
-            {
-
-
-              this.state.users.map(users =><li className='list-group-item list-group-item-action' key={users.id_cliente}>
-
-                {users.nombre}
-              </li>)
-            }
-            
-            
-            </ul>
-          </div>
-
+        </div>
 
       </div>
-           
+  
     )
-
   }
 }
+
+
+

@@ -67,7 +67,7 @@ class Proveedores(models.Model):
 
     id_prove=models.AutoField(primary_key=True)
     rif=models.CharField('RIF',max_length=10)
-    nom_prove=models.CharField('Nombre del Proveedor',max_length=20)
+    nom_prove=models.CharField('Nombre del Proveedor',max_length=20,)
     direc=models.CharField('Direccion',max_length=30)
 
     def __str__(self):
@@ -101,6 +101,7 @@ class Licores(models.Model):
 
     def __str__(self):
         return self.region
+
 
 #comentario de prueba
 #Tabla Pagos 

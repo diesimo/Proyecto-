@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 
   
-export default class Login extends Component {
+export default class ModificarPro extends Component {
 
     state={
 

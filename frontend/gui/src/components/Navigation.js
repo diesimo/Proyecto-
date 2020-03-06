@@ -5,7 +5,7 @@ export default class Navigation extends Component {
   render() {
     return (
 
-      <nav className="navbar navbar-expand-lg navbar-light bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <Link className="navbar-brand" to="/">Licoapp</Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -24,15 +24,16 @@ export default class Navigation extends Component {
                 Menu
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <Link className="dropdown-item" to="/Licores">Licores</Link>
-              <Link className="dropdown-item" to="/Acompañantes">Acompañantes</Link>
+              
+             
               <Link className="dropdown-item" to="/Login"> Login</Link>
               <Link className="dropdown-item" to="/Registro">Registro</Link>
-              <Link className="dropdown-item" to="/RegisEmpl">Registro Empleado</Link>
+              
               <Link className="dropdown-item" to="/Zonas">Zonas</Link>
               <Link className="dropdown-item" to="/Registrar">Registrar</Link>
               <Link className="dropdown-item" to="/Provedor">Proveedores</Link>
               <Link className="dropdown-item" to="/Productos">Productos</Link>
+              <Link className="dropdown-item" to="/ModificarPro">Modificar Productos</Link>
                 <div className="dropdown-divider"></div>
                 <a className="dropdown-item" href="#">Somethsing else here</a>
               </div>
